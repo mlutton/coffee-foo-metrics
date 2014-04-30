@@ -18,5 +18,13 @@
   "bugs": {
     "url": "https://github.com/mlutton/coffee-foo-metrics/issues"
   },
-  "homepage": "https://github.com/mlutton/coffee-foo-metrics"
+  "homepage": "https://github.com/mlutton/coffee-foo-metrics",
+  "devDependencies": {
+    "mocha": "^1.18.2",
+    "assertive": "^1.3.2"
+  },
+  "dependencies": {
+    "exec-sync": "^0.1.6",
+    "coffee-script-redux": "^2.0.0-beta8"
+  }
 }
