@@ -1,0 +1,22 @@
+{
+  "name": "coffee-foo-metrics",
+  "version": "0.0.1",
+  "description": "A simple coffeescript parser to generate metrics around a project",
+  "main": "src/foo-metrics.coffee",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "cake test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mlutton/coffee-foo-metrics.git"
+  },
+  "author": "Michael Lutton",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mlutton/coffee-foo-metrics/issues"
+  },
+  "homepage": "https://github.com/mlutton/coffee-foo-metrics"
+}
