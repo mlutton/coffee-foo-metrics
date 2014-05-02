@@ -26,6 +26,7 @@
   "dependencies": {
     "exec-sync": "^0.1.6",
     "coffee-script-redux": "^2.0.0-beta8",
-    "glob": "^3.2.9"
+    "glob": "^3.2.9",
+    "underscore": "^1.6.0"
   }
 }
