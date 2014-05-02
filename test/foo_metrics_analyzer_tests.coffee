@@ -4,7 +4,7 @@ assert = require 'assertive'
 describe 'Foo Metrics Analyzer', ->
   describe 'analyzing one file', ->
     before ->
-      @fileToAnalyze = './src/foo-metrics-analyzer.coffee'
+      @fileToAnalyze = './test_code/foo-metrics-analyzer.coffee'
       analyzer = new FooMetricAnalyzer()
       @results = analyzer.getMetricsFor(@fileToAnalyze)
 
@@ -15,7 +15,11 @@ describe 'Foo Metrics Analyzer', ->
       assert.equal @fileToAnalyze, @results.structure[0].fileName
 
     it 'includes information on how many times the file has changed', ->
-      assert.equal 1, @results.structure[0].timesChanged
+      assert.equal 2, @results.structure[0].timesChanged
 
     it 'includes information on how many tokens the file has', ->
-      assert.equal 210, @results.structure[0].tokens
+      assert.equal 230, @results.structure[0].tokens
+
+    it 'includes information on when the file was first checked in', ->
+      expectedDate = new Date 2014, 11, 1
+      assert.equal expectedDate.toString(), @results.structure[0].firstCheckInDate
