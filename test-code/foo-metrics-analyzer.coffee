@@ -16,7 +16,7 @@ class FooMetricAnalyzer
     results.structure = files
     results
   
-  _getTimesChanged: (fileToCheck) ->
+  _getTimesChanged: (fileToCheck) =>
     command = "git whatchanged " + fileToCheck + " | grep 'commit' | wc -l"
     output = execSync(command)
     parseInt(output, 10)

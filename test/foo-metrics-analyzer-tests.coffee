@@ -4,7 +4,7 @@ assert = require 'assertive'
 describe 'Foo Metrics Analyzer', ->
   describe 'analyzing one file', ->
     before ->
-      @fileToAnalyze = './test_code/foo-metrics-analyzer.coffee'
+      @fileToAnalyze = './test-code/foo-metrics-analyzer.coffee'
       analyzer = new FooMetricAnalyzer()
       @results = analyzer.getMetricsFor(@fileToAnalyze)
 
