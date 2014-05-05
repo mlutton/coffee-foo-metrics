@@ -12,6 +12,8 @@ class FooMetricAnalyzer
     currentFile.timesChanged = @_getTimesChanged(itemToReportOn)
     currentFile.tokens = @_getNumberOfTokens(itemToReportOn)
     currentFile.firstCheckInDate = (new Date 2014, 11, 1).toString()
+    currentFile.linesOfCode = @_getLinesOfCode(itemToReportOn)
+    currentFile.numberOfMethods = @_getNumberOfMethods(itemToReportOn)
     files.push currentFile
     results.structure = files
     results
@@ -32,4 +34,13 @@ class FooMetricAnalyzer
     tokenList = tokens(file, { literate: @_isLiterate(fileToCheck)})
     @_tokens(tokenList)
 
+  _getLinesOfCode: (fileToCheck) ->
+    command = "cat " + fileToCheck + " | wc -l"
+    output = execSync(command)
+    parseInt(output, 10)
+
+  _getNumberOfMethods: (fileToCheck) ->
+    command = "grep -e '->' -e '=>' " + fileToCheck + " | wc -l"
+    output = execSync(command)
+    parseInt(output, 10)
 module.exports = {FooMetricAnalyzer}
