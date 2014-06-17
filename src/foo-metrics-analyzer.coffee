@@ -11,7 +11,7 @@ class FooMetricAnalyzer
     currentFile.fileName = itemToReportOn
     currentFile.timesChanged = @_getTimesChanged(itemToReportOn)
     currentFile.tokens = @_getNumberOfTokens(itemToReportOn)
-    currentFile.firstCheckInDate = (new Date 2014, 11, 1).toString()
+    currentFile.firstCheckInDate = @_getFirstCheckInDate(itemToReportOn)
     currentFile.linesOfCode = @_getLinesOfCode(itemToReportOn)
     currentFile.numberOfMethods = @_getNumberOfMethods(itemToReportOn)
     files.push currentFile
@@ -43,4 +43,15 @@ class FooMetricAnalyzer
     command = "grep -e '->' -e '=>' " + fileToCheck + " | wc -l"
     output = execSync(command)
     parseInt(output, 10)
+
+  _getFirstCheckInDate: (fileToCheck) ->
+    command = "git log --date=short --reverse " + fileToCheck + " | grep 'Date' | head -1"
+    output = execSync(command)
+    dateRegEx = ///
+      Date:\s+(\d{4})-(\d{2})-(\d{2})
+      ///
+    [year, month, date] =  output.match(dateRegEx)[1..3]
+    
+    new Date(year, month, date).toString()
+
 module.exports = {FooMetricAnalyzer}

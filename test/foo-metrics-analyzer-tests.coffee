@@ -15,13 +15,13 @@ describe 'Foo Metrics Analyzer', ->
       assert.equal @fileToAnalyze, @results.structure[0].fileName
 
     it 'includes information on how many times the file has changed', ->
-      assert.equal 1, @results.structure[0].timesChanged
+      assert.equal 3, @results.structure[0].timesChanged
 
     it 'includes information on how many tokens the file has', ->
       assert.equal 230, @results.structure[0].tokens
 
     it 'includes information on when the file was first checked in', ->
-      expectedDate = new Date 2014, 11, 1
+      expectedDate = new Date 2014, 5, 5
       assert.equal expectedDate.toString(), @results.structure[0].firstCheckInDate
 
     it 'includs the number of lines in a given file', ->
