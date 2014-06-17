@@ -14,6 +14,7 @@ class FooMetricAnalyzer
     currentFile.firstCheckInDate = (new Date 2014, 11, 1).toString()
     files.push currentFile
     results.structure = files
+    foo = []
     results
   
   _getTimesChanged: (fileToCheck) =>
